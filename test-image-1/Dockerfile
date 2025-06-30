@@ -1,3 +1,3 @@
 FROM ubuntu
 
-RUN apt-get update -y
+RUN ap-get update -y
