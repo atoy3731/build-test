@@ -41,3 +41,11 @@ jobs:
           tag=$(basename "${{ matrix.dir }}")
           echo "Building image for ${{ matrix.dir }} with tag $tag"
           docker build "${{ matrix.dir }}" -t "myregistry/${tag}:latest"
+
+  final:
+    needs: build
+    runs-on: ubuntu-latest
+    if: always()  # Or remove this to only run if ALL builds succeed
+    steps:
+      - name: Do something after all builds
+        run: echo "All Docker images built successfully!"
