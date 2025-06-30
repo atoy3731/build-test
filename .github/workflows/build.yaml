@@ -45,7 +45,6 @@ jobs:
   final:
     needs: build
     runs-on: ubuntu-latest
-    if: always()  # Or remove this to only run if ALL builds succeed
     steps:
       - name: Do something after all builds
         run: echo "All Docker images built successfully!"
